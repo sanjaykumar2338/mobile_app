@@ -75,4 +75,14 @@ class UserController extends Controller
             'image_url' => \URL::asset('uploads')
         ], 200);
     }
+
+    public function productbycategory($id){
+        $products = Product::where('category',$id)->join('category','category.id','=','products.category')->select('products.*','category.name as category_name')->get();
+        return response()->json([
+            'success' => true,
+            'message' => 'Product List(s) by category',
+            'data' => $products,
+            'image_url' => \URL::asset('uploads')
+        ], 200);
+    }
 }

@@ -20,4 +20,5 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@details');
     Route::get('category', 'API\UserController@category');
     Route::get('product', 'API\UserController@products');
+    Route::get('productbycategory/{id}', 'API\UserController@productbycategory');
 });
