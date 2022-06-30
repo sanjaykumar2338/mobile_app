@@ -50,8 +50,8 @@ Route::prefix('admin')->group(function() {
 Route::get('/', 'Front\HomeController@index');
 
 // User Registration
-Route::get('/user/register','Front\RegistrationController@index');
-Route::post('/user/register','Front\RegistrationController@store');
+//Route::get('/user/register','Front\RegistrationController@index');
+//Route::post('/user/register','Front\RegistrationController@store');
 
 // User Login
 Route::get('/user/login','Front\SessionsController@index');
