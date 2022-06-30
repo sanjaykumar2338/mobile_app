@@ -15,7 +15,7 @@
 
     {{ Html::style('assets/css/paper-dashboard.css') }}
 
-    {{ Html::style('http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css') }}
+    {{ Html::style('https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css') }}
 
     {{ Html::style('https://fonts.googleapis.com/css?family=Muli:400,300') }}
 
