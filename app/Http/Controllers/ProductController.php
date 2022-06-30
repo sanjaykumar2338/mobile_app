@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,13 +12,14 @@ class ProductController extends Controller
     public function index() {
 
         $products = Product::all();
-
         return view('admin.products.index', compact('products'));
     }
 
     public function create() {
         $product = new Product();
-        return view('admin.products.create', compact('product'));
+        $category = Category::all();
+
+        return view('admin.products.create', compact('product','category'));
     }
 
     public function store(Request $request) {
@@ -28,7 +31,8 @@ class ProductController extends Controller
            'description' => 'required',
            'quantity' => 'required|integer',
            'available' => 'required',
-           'image' => 'image|required'
+           'image' => 'image|required',
+           'category' => 'required'
         ]);
 
         // Upload the image
@@ -44,7 +48,8 @@ class ProductController extends Controller
             'description' => $request->description,
             'available' => $request->available,
             'quantity' => $request->quantity,
-            'image' => $request->image->getClientOriginalName()
+            'image' => $request->image->getClientOriginalName(),
+            'category' => $request->category
         ]);
 
         // Sessions Message
@@ -56,7 +61,9 @@ class ProductController extends Controller
 
     public function edit($id) {
         $product = Product::find($id);
-        return view('admin.products.edit', compact('product'));
+        $category = Category::all();
+
+        return view('admin.products.edit', compact('product','category'));
     }
 
     public function update(Request $request, $id) {
@@ -71,6 +78,7 @@ class ProductController extends Controller
             'description' => 'required',
             'quantity' => 'required|integer',
             'available' => 'required',
+            'category' => 'required'
         ]);
 
         // Check if there is any image
@@ -89,12 +97,13 @@ class ProductController extends Controller
 
         // Updating the product
         $product->update([
-           'name' => $request->name,
+            'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
             'image' => $product->image,
             'available' => $request->available,
-            'quantity' => $request->quantity
+            'quantity' => $request->quantity,
+            'category' => $request->category
         ]);
 
         // Store a message in session

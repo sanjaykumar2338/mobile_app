@@ -1,3 +1,14 @@
+<div class="form-group {{ $errors->has('category') ? 'has-error' : '' }}">
+    {{ Form::label('product_name', 'Category Name') }}
+    <select name="category" id="category" class="form-control border-input">
+        <option value="">--Select Category--</option>
+        @foreach($category as $cit)
+        <option {{$product->category==$cit->id ? 'selected':''}} value="{{$cit->id}}">{{$cit->name}}</option>
+        @endforeach
+    </select>
+    <span class="text-danger">{{ $errors->has('category') ? $errors->first('category') : '' }}</span>
+</div>
+
 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
     {{ Form::label('product_name', 'Product Name') }}
     {{ Form::text('name',$product->name,['class'=>'form-control border-input','placeholder'=>'Macbook pro']) }}
