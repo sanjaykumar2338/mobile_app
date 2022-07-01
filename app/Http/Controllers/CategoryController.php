@@ -25,7 +25,7 @@ class CategoryController extends Controller
         // Validate the form
         $request->validate([
            'name' => 'required',          
-           'image' => 'image|required'
+           'image' => 'required'
         ]);
 
         // Upload the image

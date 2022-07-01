@@ -31,7 +31,7 @@ class ProductController extends Controller
            'description' => 'required',
            'quantity' => 'required|integer',
            'available' => 'required',
-           'image' => 'image|required',
+           'image' => 'required',
            'category' => 'required'
         ]);
 
@@ -73,7 +73,7 @@ class ProductController extends Controller
 
         // Validate The form
         $request->validate([
-           'name' => 'required',
+            'name' => 'required',
             'price' => 'required',
             'description' => 'required',
             'quantity' => 'required|integer',
