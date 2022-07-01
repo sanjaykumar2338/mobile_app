@@ -17,7 +17,7 @@
                     <h4 class="title">Categories</h4>
                     <p class="category">List of all categories</p>
                     <a style="float:right;" href="{{ url('/admin/category/create') }}">                       
-                        <p>Add Product</p>
+                        <p>Add Category</p>
                     </a>
                 </div>
                 <div class="content table-responsive table-full-width">
