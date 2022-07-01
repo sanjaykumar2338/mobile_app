@@ -21,4 +21,11 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('category', 'API\UserController@category');
     Route::get('product', 'API\UserController@products');
     Route::get('productbycategory/{id}', 'API\UserController@productbycategory');
+
+    Route::get('product_details/{id}', 'API\UserController@productdetails');
+    Route::get('city', 'API\UserController@city');
+    Route::get('sector/{city}', 'API\UserController@sector');
+    Route::get('apartment/{sector}', 'API\UserController@apartment');
+
+    Route::post('save_order/{sector}', 'API\UserController@save_order');
 });

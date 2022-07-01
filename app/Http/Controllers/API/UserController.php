@@ -3,10 +3,13 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request; 
 use App\Http\Controllers\Controller; 
 use App\User; 
+use App\City; 
+use App\Sector; 
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 use App\Product;
 use App\Category;
+use App\Apartment;
 
 class UserController extends Controller 
 {
@@ -84,5 +87,50 @@ class UserController extends Controller
             'data' => $products,
             'image_url' => \URL::asset('uploads')
         ], 200);
+    }
+
+    public function productdetails($id){
+        $products = Product::where('id',$id)->join('category','category.id','=','products.category')->select('products.*','category.name as category_name')->first();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Details',
+            'data' => $products,
+            'image_url' => \URL::asset('uploads')
+        ], 200);
+    }
+
+    public function city(){
+        $city = City::all();
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'City List',
+            'data' => $city,
+        ], 200);
+    }
+
+    public function sector($id){
+        $sector = Sector::where('city',$id)->get();
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Sector List',
+            'data' => $sector,
+        ], 200);
+    }
+
+    public function apartment($id){
+        $apartment = Apartment::where('sector',$id)->get();
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Apartment List',
+            'data' => $apartment,
+        ], 200);
+    }
+
+    public function save_order($Request $request){
+        
     }
 }
