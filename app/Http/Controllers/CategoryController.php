@@ -77,7 +77,7 @@ class CategoryController extends Controller
         }
 
         // Updating the product
-        $product->update([
+        $category->update([
             'name' => $request->name,
             'image' => $category->image
         ]);
