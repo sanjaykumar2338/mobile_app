@@ -8,5 +8,5 @@
     {{ Form::label('file','File') }}
     {{ Form::file('image', ['class'=>'form-control border-input', 'id' => 'image']) }}
     <div id="thumb-output"></div>
-    <span class="text-danger">{{ $errors->has('image') ? $errors->first('description') : '' }}</span>
+    <span class="text-danger">{{ $errors->has('image') ? $errors->first('image') : '' }}</span>
 </div>
