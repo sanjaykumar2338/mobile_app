@@ -22,7 +22,7 @@
                             @include('admin.category._fields')
 
                             <div class="form-group">
-                                {{ Form::submit('Update Product', ['class'=>'btn btn-primary']) }}
+                                {{ Form::submit('Update Category', ['class'=>'btn btn-primary']) }}
                             </div>
 
                         </div>
