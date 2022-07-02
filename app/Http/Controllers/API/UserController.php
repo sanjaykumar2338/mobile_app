@@ -16,13 +16,16 @@ class UserController extends Controller
     public $successStatus = 200;
 
     public function login(){ 
+        
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
+            
             $user = Auth::user(); 
             $success['token'] =  $user->createToken('MyApp')->accessToken; 
-            return response()->json(['success' => $success,'user'=>$user], $this-> successStatus); 
-        } 
-        else{ 
-            return response()->json(['error'=>'Unauthorised'], 401); 
+            $success['user'] =  $user; 
+
+            return response()->json(['isSuccess'=>true,'data'=>$success],$this-> successStatus); 
+        } else{ 
+            return response()->json(['isSuccess'=>false,'data'=>[]],401); 
         } 
     }
 
@@ -48,19 +51,21 @@ class UserController extends Controller
         User::where('id',$user->id)->update(array('name'=>$name));
 
         $success['token'] =  $user->createToken('MyApp')->accessToken; 
-        return response()->json(['success'=>$success,'user'=>$user], $this-> successStatus); 
+        $success['user'] =  $user; 
+
+        return response()->json(['isSuccess'=>true,'data'=>$success], $this-> successStatus); 
     }
 
     public function details() 
     { 
         $user = Auth::user(); 
-        return response()->json(['success' => $user], $this-> successStatus); 
+        return response()->json(['isSuccess'=>true,'data' => $user], $this->successStatus); 
     } 
 
      public function products() {
         $products = Product::all();
         return response()->json([
-            'success' => true,
+            'isSuccess' => true,
             'message' => 'Product List(s)',
             'data' => $products,
             'image_url' => \URL::asset('uploads')
@@ -70,7 +75,7 @@ class UserController extends Controller
     public function category() {
         $category = Category::all();
         return response()->json([
-            'success' => true,
+            'isSuccess' => true,
             'message' => 'Category List(s)',
             'data' => $category,
             'image_url' => \URL::asset('uploads')
@@ -80,7 +85,7 @@ class UserController extends Controller
     public function productbycategory($id){
         $products = Product::where('category',$id)->join('category','category.id','=','products.category')->select('products.*','category.name as category_name')->get();
         return response()->json([
-            'success' => true,
+            'isSuccess' => true,
             'message' => 'Product List(s) by category',
             'data' => $products,
             'image_url' => \URL::asset('uploads')
@@ -91,7 +96,7 @@ class UserController extends Controller
         $products = Product::where('id',$id)->join('category','category.id','=','products.category')->select('products.*','category.name as category_name')->first();
 
         return response()->json([
-            'success' => true,
+            'isSuccess' => true,
             'message' => 'Product Details',
             'data' => $products,
             'image_url' => \URL::asset('uploads')
@@ -102,7 +107,7 @@ class UserController extends Controller
         $city = City::all();
         
         return response()->json([
-            'success' => true,
+            'isSuccess' => true,
             'message' => 'City List',
             'data' => $city,
         ], 200);
@@ -112,7 +117,7 @@ class UserController extends Controller
         $sector = Sector::where('city',$id)->get();
         
         return response()->json([
-            'success' => true,
+            'isSuccess' => true,
             'message' => 'Sector List',
             'data' => $sector,
         ], 200);
@@ -122,7 +127,7 @@ class UserController extends Controller
         $apartment = Apartment::where('sector',$id)->get();
         
         return response()->json([
-            'success' => true,
+            'isSuccess' => true,
             'message' => 'Apartment List',
             'data' => $apartment,
         ], 200);
