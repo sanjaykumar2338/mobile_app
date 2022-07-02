@@ -130,7 +130,7 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function save_order($Request $request){
+    public function save_order(Request $request){
         
     }
 }
