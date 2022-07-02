@@ -19,7 +19,7 @@ class UserController extends Controller
         
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             
-            $user = User::where('email',$email)->get(); 
+            $user = User::where('email',request('email'))->get(); 
             $success['token'] =  $user->createToken('MyApp')->accessToken; 
             $success['user'] =  $user; 
 
