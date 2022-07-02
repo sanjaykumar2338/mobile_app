@@ -16,15 +16,13 @@ class UserController extends Controller
     public $successStatus = 200;
 
     public function login(){ 
-        
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
-            
-            $user = User::where('email',request('email'))->get(); 
+            $user = Auth::user(); 
             $success['token'] =  $user->createToken('MyApp')->accessToken; 
             $success['user'] =  $user; 
-
-            return response()->json(['isSuccess'=>true,'data'=>$success],$this-> successStatus); 
-        } else{ 
+            return response()->json(['isSuccess'=>true,'data'=>$success],$this->successStatus); 
+        } 
+        else{ 
             return response()->json(['isSuccess'=>false,'data'=>[]],401); 
         } 
     }
@@ -40,7 +38,7 @@ class UserController extends Controller
         ]);
         
         if ($validator->fails()) { 
-            return response()->json(['isSuccess'=>false,'data'=>$validator->errors()], 401);            
+            return response()->json(['isSuccess'=>false,'data'=>$validator->errors()],401); 
         }
 
         $input = $request->all(); 
@@ -59,7 +57,7 @@ class UserController extends Controller
     public function details() 
     { 
         $user = Auth::user(); 
-        return response()->json(['isSuccess'=>true,'data' => $user], $this->successStatus); 
+        return response()->json(['isSuccess'=>true,'data' => $user], $this-> successStatus); 
     } 
 
      public function products() {
