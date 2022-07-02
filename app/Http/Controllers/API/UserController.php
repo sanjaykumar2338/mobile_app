@@ -47,9 +47,7 @@ class UserController extends Controller
         $name = $request->first_name.' '.$request->last_name;
         User::where('id',$user->id)->update(array('name'=>$name));
 
-        $success['token'] =  $user->createToken('MyApp')-> accessToken; 
-        $success['name'] =  $user->name;
-
+        $success['token'] =  $user->createToken('MyApp')->accessToken; 
         return response()->json(['success'=>$success,'user'=>$user], $this-> successStatus); 
     }
 
