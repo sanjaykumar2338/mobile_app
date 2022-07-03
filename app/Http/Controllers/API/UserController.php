@@ -10,6 +10,9 @@ use Validator;
 use App\Product;
 use App\Category;
 use App\Apartment;
+use App\Order;
+use App\OrderItems;
+use Carbon\Carbon;
 
 class UserController extends Controller 
 {
@@ -132,6 +135,33 @@ class UserController extends Controller
     }
 
     public function save_order(Request $request){
-        
+        $user = Auth::user(); 
+        $items = json_decode($request->getContent());
+
+        $order = Order::create([
+            'user_id' => $user->id,
+            'date' => Carbon::now(),
+            'address' => $items->address,
+            'status' => 1,
+            'city' => $items->city,
+            'apartment' => $items->apartment,
+            'sector' => $items->sector
+        ]);
+
+        $OrderItems = $items->OrderItems;
+        foreach ($OrderItems as $key => $value) {           
+            OrderItems::create([
+                'order_id' => $order->id,
+                'product_id' => $value->product_id,
+                'quantity' => $value->quantity,
+                'price' => $value->price
+            ]);
+        }
+
+        return response()->json([
+            'isSuccess' => true,
+            'message' => 'Order placed successfully',
+            'data' => $order
+        ], 200);
     }
 }
