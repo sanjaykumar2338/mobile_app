@@ -145,7 +145,11 @@ class UserController extends Controller
             'status' => 1,
             'city' => $items->city,
             'apartment' => $items->apartment,
-            'sector' => $items->sector
+            'sector' => $items->sector,
+            'total' => $items->total,
+            'first_name' => $items->first_name,
+            'last_name' => $items->last_name,
+            'phone_number' => $items->phone_number
         ]);
 
         $OrderItems = $items->OrderItems;
