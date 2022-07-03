@@ -91,7 +91,7 @@ class UserController extends Controller
     }
 
     public function productdetails($id){
-        $products = Product::where('id',$id)->join('category','category.id','=','products.category')->select('products.*','category.name as category_name')->first();
+        $products = Product::where('products.id',$id)->join('category','category.id','=','products.category')->select('products.*','category.name as category_name')->first();
 
         return response()->json([
             'isSuccess' => true,
