@@ -30,6 +30,9 @@
                             <th>User</th>
                             <th>Product</th>
                             <th>Quantity</th>
+                            <th>City</th>
+                            <th>Sector</th>
+                            <th>Apartment</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -58,6 +61,10 @@
                                         </table>
                                     @endforeach
                                 </td>
+
+                                <td>{{ $order->city_name }}</td>
+                                <td>{{ $order->apartment_name }}</td>
+                                <td>{{ $order->sector_name }}</td>
 
                                 <td>
                                     @if ($order->status)
