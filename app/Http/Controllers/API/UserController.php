@@ -30,6 +30,37 @@ class UserController extends Controller
         } 
     }
 
+    public function update_profile(Request $request) { 
+        $user = Auth::user();
+        $validator = Validator::make($request->all(), [ 
+            'first_name' => 'required', 
+            'last_name' => 'required', 
+            'phone_number' => 'unique:users,phone_number|required'.$user->id, 
+            'email' => 'unique:users,email|required'.$user->id
+        ]);
+
+        if($request->password){
+            User::where('id',$user->id)>update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'phone_number' => $request->phone_number,
+                'email' => $request->email,
+                'password' => bcrypt($input['password']) 
+            ]);
+        }else{
+             User::where('id',$user->id)>update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'phone_number' => $request->phone_number,
+                'email' => $request->email
+            ]);
+        }        
+
+        $user = Auth::user();
+        return response()->json(['isSuccess'=>true,'data'=>$user],200); 
+    }
+        
+
     public function register(Request $request) 
     { 
         $validator = Validator::make($request->all(), [ 

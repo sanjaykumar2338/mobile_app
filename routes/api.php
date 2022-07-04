@@ -28,4 +28,5 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('apartment/{sector}', 'API\UserController@apartment');
 
     Route::post('save_order', 'API\UserController@save_order');
+    Route::post('update_profile', 'API\UserController@update_profile');
 });
