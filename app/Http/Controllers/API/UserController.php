@@ -40,7 +40,7 @@ class UserController extends Controller
         ]);
 
         if($request->password){
-            User::where('id',$user->id)>update([
+            User::where('id',$user->id)->update([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'phone_number' => $request->phone_number,
@@ -48,7 +48,7 @@ class UserController extends Controller
                 'password' => bcrypt($input['password']) 
             ]);
         }else{
-             User::where('id',$user->id)>update([
+             User::where('id',$user->id)->update([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'phone_number' => $request->phone_number,
