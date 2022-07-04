@@ -66,7 +66,7 @@ class UserController extends Controller
      public function products(Request $request) {
         
         if($request->name){
-            $products = Product::where('name', 'like', '%'.$request->name.'%')->all();
+            $products = Product::where('name', 'like', '%'.$request->name.'%')->get();
         }else{
             $products = Product::all();   
         }
