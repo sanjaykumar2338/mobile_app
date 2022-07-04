@@ -77,8 +77,8 @@ class SectorController extends Controller
     }
 
     public function show($id) {
-        $sector = sector::find($id);
-        return view('admin.sector.details', compact('sector'));
+        $category  = sector::find($id);
+        return view('admin.sector.details', compact('category'));
     }
 
     public function destroy($id) {

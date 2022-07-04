@@ -5,11 +5,11 @@
  * Admin Routes
  */
 Route::prefix('admin')->group(function() {
-
+    
     Route::middleware('auth:admin')->group(function() {
         // Dashboard
         Route::get('/dashboard', 'DashboardController@index');
-
+        
         // Products
         Route::resource('/products','ProductController');
 

@@ -17,7 +17,7 @@ class UsersController extends Controller
 
         // Find the user
         $orders = Order::where('user_id', $id)->get();
-
+        
         // Return array back to user details page
 
         return view('admin.users.details', compact('orders'));
