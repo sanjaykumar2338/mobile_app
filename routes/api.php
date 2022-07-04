@@ -19,7 +19,7 @@ Route::post('register', 'API\UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('getdetails', 'API\UserController@details');
     Route::get('category', 'API\UserController@category');
-    Route::get('product', 'API\UserController@products');
+    Route::get('product/{name?}', 'API\UserController@products');
     Route::get('productbycategory/{id}', 'API\UserController@productbycategory');
 
     Route::get('product_details/{id}', 'API\UserController@productdetails');

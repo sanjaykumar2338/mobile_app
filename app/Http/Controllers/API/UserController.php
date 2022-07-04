@@ -63,8 +63,14 @@ class UserController extends Controller
         return response()->json(['isSuccess'=>true,'data' => $user], $this-> successStatus); 
     } 
 
-     public function products() {
-        $products = Product::all();
+     public function products(Request $request) {
+        
+        if($request->name){
+            $products = Product::where('name', 'like', '%'.$request->name.'%')->all();
+        }else{
+            $products = Product::all();   
+        }
+
         return response()->json([
             'isSuccess' => true,
             'message' => 'Product List(s)',
