@@ -47,7 +47,8 @@ Route::prefix('admin')->group(function() {
  * Front Routes
  */
 
-Route::get('/', 'Front\HomeController@index');
+Route::get('/', 'AdminUserController@index');
+//Route::get('/', 'Front\HomeController@index');
 
 // User Registration
 //Route::get('/user/register','Front\RegistrationController@index');
