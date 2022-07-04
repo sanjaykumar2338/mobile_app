@@ -39,6 +39,10 @@ class UserController extends Controller
             'email' => 'unique:users,email|required'.$user->id
         ]);
 
+        if ($validator->fails()) { 
+            return response()->json(['isSuccess'=>false,'data'=>$validator->errors()],401); 
+        }
+
         if($request->password){
             User::where('id',$user->id)->update([
                 'first_name' => $request->first_name,
