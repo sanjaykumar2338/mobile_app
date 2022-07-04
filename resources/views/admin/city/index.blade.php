@@ -16,9 +16,10 @@
                 <div class="header">
                     <h4 class="title">City</h4>
                     <p class="category">List of all City</p>
-                    <a style="float:right;" href="{{ url('/admin/city/create') }}">                       
-                        <p>Add City</p>
-                    </a>
+                </div>
+                 <div style="float: right;margin: 7px;">
+                    <a class="btn btn-primary" href="{{ url('/admin/city/create') }}">Add City</a>
+                    <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table">

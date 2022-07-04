@@ -23,7 +23,11 @@
 
                             <div class="form-group">
                                 {{ Form::submit('Add Product', ['class'=>'btn btn-primary']) }}
+                                <a class="btn btn-primary" href="javascript:history.back()">BACK</a> 
+                                <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
                             </div>
+
+
 
                         </div>
 

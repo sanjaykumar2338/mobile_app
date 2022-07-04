@@ -12,21 +12,21 @@
                 <div class="content">
                     <div class="row">
                         <div class="col-xs-5">
-                            <div class="icon-big icon-warning text-center">
-                                <i class="ti-eye"></i>
+                            <div class="icon-big icon-success text-center">
+                                <i class="ti-archive"></i>
                             </div>
                         </div>
                         <div class="col-xs-7">
                             <div class="numbers">
-                                <p>Total Visitors</p>
-                                11022
+                                <p>Products</p>
+                                {{ $product->count() }}
                             </div>
                         </div>
                     </div>
                     <div class="footer">
                         <hr/>
                         <div class="stats">
-                            <i class="ti-panel"></i> Details
+                            <a href="{{ url('/admin/products') }}"><i class="ti-panel"></i> Details</a>
                         </div>
                     </div>
                 </div>
@@ -43,20 +43,99 @@
                         </div>
                         <div class="col-xs-7">
                             <div class="numbers">
-                                <p>Products</p>
-                                {{ $product->count() }}
+                                <p>Categories</p>
+                                {{ App\Category::count() }}
                             </div>
                         </div>
                     </div>
                     <div class="footer">
                         <hr/>
                         <div class="stats">
-                            <a href="{{ url('/products') }}"><i class="ti-panel"></i> Details</a>
+                            <a href="{{ url('/admin/category') }}"><i class="ti-panel"></i> Details</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="icon-big icon-success text-center">
+                                <i class="ti-archive"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="numbers">
+                                <p>Apartment</p>
+                                {{ App\Apartment::count() }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr/>
+                        <div class="stats">
+                            <a href="{{ url('/admin/apartment') }}"><i class="ti-panel"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="icon-big icon-success text-center">
+                                <i class="ti-archive"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="numbers">
+                                <p>Sector</p>
+                                {{ App\Sector::count() }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr/>
+                        <div class="stats">
+                            <a href="{{ url('/admin/sector') }}"><i class="ti-panel"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <div class="card">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="icon-big icon-success text-center">
+                                <i class="ti-archive"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="numbers">
+                                <p>City</p>
+                                {{ App\City::count() }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <hr/>
+                        <div class="stats">
+                            <a href="{{ url('/admin/city') }}"><i class="ti-panel"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="content">
@@ -76,7 +155,7 @@
                     <div class="footer">
                         <hr/>
                         <div class="stats">
-                            <a href="{{ url('/orders') }}"><i class="ti-panel"></i> Orders</a>
+                            <a href="{{ url('/admin/orders') }}"><i class="ti-panel"></i> Orders</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +180,7 @@
                     <div class="footer">
                         <hr/>
                         <div class="stats">
-                            <a href="{{ url('/users') }}"><i class="ti-panel"></i> Users</a>
+                            <a href="{{ url('/admin/users') }}"><i class="ti-panel"></i> Users</a>
                         </div>
                     </div>
                 </div>

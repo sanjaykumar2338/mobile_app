@@ -15,10 +15,11 @@
             <div class="card">
                 <div class="header">
                     <h4 class="title">Sector</h4>
-                    <p class="category">List of all Sector</p>
-                    <a style="float:right;" href="{{ url('/admin/sector/create') }}">                       
-                        <p>Add Sector</p>
-                    </a>
+                    <p class="category">List of all Sector</p>                   
+                </div>
+                <div style="float: right;margin: 7px;">
+                    <a class="btn btn-primary" href="{{ url('/admin/sector/create') }}">Add Sector</a>
+                    <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table">

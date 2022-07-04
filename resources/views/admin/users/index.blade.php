@@ -14,6 +14,10 @@
                     <h4 class="title">Customers</h4>
                     <p class="category">List of all Customers</p>
                 </div>
+                 <div style="float: right;margin: 7px;">
+                    <a class="btn btn-primary" href="javascript:history.back()">BACK</a> 
+                    <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
+                </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
                         <thead>

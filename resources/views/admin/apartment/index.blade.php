@@ -15,10 +15,11 @@
             <div class="card">
                 <div class="header">
                     <h4 class="title">Apartment</h4>
-                    <p class="category">List of all Apartment</p>
-                    <a style="float:right;" href="{{ url('/admin/apartment/create') }}">                       
-                        <p>Add Apartment</p>
-                    </a>
+                    <p class="category">List of all Apartment</p>                  
+                </div>
+                <div style="float: right;margin: 7px;">
+                    <a class="btn btn-primary" href="{{ url('/admin/apartment/create') }}">Add Apartment</a>
+                    <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table">

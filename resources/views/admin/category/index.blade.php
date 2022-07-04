@@ -16,9 +16,10 @@
                 <div class="header">
                     <h4 class="title">Categories</h4>
                     <p class="category">List of all categories</p>
-                    <a style="float:right;" href="{{ url('/admin/category/create') }}">                       
-                        <p>Add Category</p>
-                    </a>
+                </div>
+                <div style="float: right;margin: 7px;">
+                    <a class="btn btn-primary" href="{{ url('/admin/category/create') }}">Add Category</a>
+                    <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table">

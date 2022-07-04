@@ -23,6 +23,8 @@
 
                             <div class="form-group">
                                 {{ Form::submit('Update Category', ['class'=>'btn btn-primary']) }}
+                                <a class="btn btn-primary" href="javascript:history.back()">BACK</a> 
+                                <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
                             </div>
 
                         </div>

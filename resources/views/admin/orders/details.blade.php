@@ -15,6 +15,10 @@
                     <h4 class="title">Order Details</h4>
                     <p class="category">Order details</p>
                 </div>
+                 <div style="float: right;margin: 7px;">
+                    <a class="btn btn-primary" href="javascript:history.back()">BACK</a> 
+                    <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
+                </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
                         <thead>
@@ -145,5 +149,5 @@
     </div>
 
     <a href="{{ url('/admin/orders') }}" class="btn btn-success">Back to Orders</a>
-    
+    <a class="btn btn-primary" href="{{URL('/admin')}}">Home</a> 
 @endsection
