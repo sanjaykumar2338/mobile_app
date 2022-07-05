@@ -49,7 +49,7 @@ class UserController extends Controller
                 'last_name' => $request->last_name,
                 'phone_number' => $request->phone_number,
                 'email' => $request->email,
-                'password' => bcrypt($input['password']) 
+                'password' => bcrypt($request->password) 
             ]);
         }else{
              User::where('id',$user->id)->update([
