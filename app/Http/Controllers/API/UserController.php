@@ -212,7 +212,7 @@ class UserController extends Controller
 
     public function orders(Request $request){
         $user = Auth::user();
-        $order = Order::where('user_id' , $user->id)->get();
+        $order = Order::where('user_id' , $user->id)->orderby('created_at','DESC')->get();
 
         return response()->json([
             'isSuccess' => true,
