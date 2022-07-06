@@ -41,7 +41,7 @@
                         <tr>
                             @foreach ($orders as $order)
                                 <td>{{ $order->id }}</td>
-                                <td>{{ $order->user->name }}</td>
+                                <td>{{ $order->user->first_name }} {{ $order->user->last_name }}</td>
                                 <td>
                                 @foreach ($order->products as $item)
                                     <table class="table">
