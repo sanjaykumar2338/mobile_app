@@ -29,4 +29,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
     Route::post('save_order', 'API\UserController@save_order');
     Route::post('update_profile', 'API\UserController@update_profile');
+
+    Route::get('orders', 'API\UserController@orders');
+    Route::get('order/details/{id}', 'API\UserController@order_details');
 });

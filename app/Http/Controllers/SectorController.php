@@ -59,13 +59,14 @@ class SectorController extends Controller
 
         // Validate The form
         $request->validate([
-            'name' => 'required',
-            'sector' => 'required'
+            'city' => 'required',
+            'name' => 'required'
         ]);
         
         // Updating the product
         $sector->update([
-            'name' => $request->name
+            'name' => $request->name,
+            'city' => $request->city
         ]);
 
         // Store a message in session

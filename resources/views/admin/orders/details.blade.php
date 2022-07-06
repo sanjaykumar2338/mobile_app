@@ -57,7 +57,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">User Details</h4>
+                    <h4 class="title">Register User Details</h4>
                     <p class="category">User Details</p>
                 </div>
                 <div class="content table-responsive table-full-width">
@@ -74,10 +74,50 @@
                         <tr>
                             <th>Email</th>
                             <td>{{ $order->user->email }}</td>
+                        </tr>                      
+                        <tr>
+                            <th>Phone Number</th>
+                            <td>{{ $order->phone_number }}</td>
                         </tr>
                         <tr>
                             <th>Registered At</th>
                             <td>{{ $order->user->created_at->diffForHumans() }}</td>
+                        </tr>
+
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Delivery Details</h4>
+                    <p class="category">&nbsp;</p>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <td>{{ $order->first_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <td>{{ $order->last_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td>{{ $order->phone_number }}</td>
+                        </tr>                      
+                        <tr>
+                            <th>Address</th>
+                            <td>{{ $order->address }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>&nbsp;</th>
+                            <td>&nbsp;</td>
                         </tr>
 
                         </thead>

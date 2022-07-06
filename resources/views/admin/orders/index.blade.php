@@ -87,6 +87,7 @@
                             </td>
                         </tr>
                         @endforeach
+                        {!! $orders->render() !!}
 
 
 

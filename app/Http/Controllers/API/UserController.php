@@ -209,4 +209,29 @@ class UserController extends Controller
             'data' => $order
         ], 200);
     }
+
+    public function orders(Request $request){
+        $user = Auth::user();
+        $order = Order::where('user_id' , $user->id)->get();
+
+        return response()->json([
+            'isSuccess' => true,
+            'message' => 'Order list',
+            'data' => $order
+        ], 200);
+    }  
+
+    public function order_details(Request $request, $id){
+        $user = Auth::user();
+        $order_items = Order::where('orders.id' ,$id)->join('order_items','order_items.order_id','=','orders.id')->join('products','products.id','=','order_items.product_id')->join('city as c','c.id','=','orders.city')->join('sector as s','s.id','=','orders.sector')->join('apartment as a','a.id','=','orders.apartment')->select('order_items.*','c.name as city_name','s.name as sector_name','a.name as apartment_name','products.name as product_name','products.image as product_image','orders.address as delivery_address')->get();
+
+        $order = Order::where('orders.id' ,$id)->first();
+
+        return response()->json([
+            'isSuccess' => true,
+            'message' => 'Orders list',
+            'data' => ['order'=>$order,'order_items'=>$order_items],
+            'image_url' => \URL::asset('uploads')
+        ], 200);
+    }    
 }
