@@ -86,14 +86,10 @@
 
                             </td>
                         </tr>
-                        @endforeach
-                        {!! $orders->render() !!}
-
-
-
+                            @endforeach
                         </tbody>
                     </table>
-
+                     {!! $orders->render() !!}
                 </div>
             </div>
         </div>
