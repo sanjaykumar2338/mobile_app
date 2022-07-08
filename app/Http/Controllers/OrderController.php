@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index() {
-        $orders = Order::leftjoin('city','city.id','=','orders.city')->leftjoin('sector','sector.id','=','orders.sector')->leftjoin('apartment','apartment.id','=','orders.apartment')->select('orders.*','city.name as city_name','apartment.name as apartment_name','sector.name as sector_name')->paginate(5);
+        $orders = Order::leftjoin('city','city.id','=','orders.city')->leftjoin('sector','sector.id','=','orders.sector')->leftjoin('apartment','apartment.id','=','orders.apartment')->select('orders.*','city.name as city_name','apartment.name as apartment_name','sector.name as sector_name')->orderby('updated_at','desc')->paginate(5);
 
         //echo "<pre>"; print_r($orders); die();
         return view('admin.orders.index', compact('orders'));
